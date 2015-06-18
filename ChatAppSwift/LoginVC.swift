@@ -40,5 +40,32 @@ class LoginVC: UIViewController {
     }
 
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationItem.hidesBackButton = true
+    }
+
+    
+    
+    
+    @IBAction func loginBtn_click(sender: AnyObject) {
+        
+        
+
+    
+        PFUser.logInWithUsernameInBackground(usernameTxt.text, password: passwordTxt.text){
+            (user:PFUser?, error:NSError?) -> Void in
+            
+            
+            if (error != nil)
+            {
+                println("can't login")
+            }else {
+                println("you are logged in")
+                
+                self.performSegueWithIdentifier("goToUsersVC", sender: self)
+            }
+        
+            }
+    }    
 }
 

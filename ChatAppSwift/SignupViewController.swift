@@ -85,19 +85,19 @@ class SignupViewController: UIViewController, UINavigationControllerDelegate, UI
         
     }
     
-    
+   
     func textFieldDidBeginEditing(textField: UITextField) {
         
         let theWidth = view.frame.size.width
         let theHeight = view.frame.size.height
         
-        if (UIScreen.mainScreen().bounds.height == 560) {
+        if (UIScreen.mainScreen().bounds.height == 568) {
             
             if (textField == self.profileNameTxt) {
                 
                 UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveLinear, animations:{
             
-                self.view.center = CGPointMake(theWidth/2, (theHeight/2) - 40)
+                self.view.center = CGPointMake(theWidth/2, (theHeight/2) - 60)
             
                
                     } , completion: {
@@ -108,6 +108,69 @@ class SignupViewController: UIViewController, UINavigationControllerDelegate, UI
         }
     }
     
+    func textFieldDidEndEditing(textField: UITextField) {
+        let theWidth = view.frame.size.width
+        let theHeight = view.frame.size.height
+        
+        if (UIScreen.mainScreen().bounds.height == 568) {
+            
+            if (textField == self.profileNameTxt) {
+                
+                UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveLinear, animations:{
+                    
+                    self.view.center = CGPointMake(theWidth/2, (theHeight/2))
+                    
+                    
+                    } , completion: {
+                        (finished:Bool) in
+                        
+                })
+            }
+        }
+    }
+    
+    
+    
+    
+    @IBAction func signupBtn_click(sender: AnyObject) {
+        
+        var user = PFUser()
+        user.username = usernameTxt.text
+        user.password = passwordTxt.text
+        user.email = usernameTxt.text
+        user["profileName"] = profileNameTxt.text
+        
+        let imageData = UIImagePNGRepresentation(self.profileImg.image)
+        let imageFile = PFFile(name: "profilePhoto.png", data: imageData)
+        user["photo"] = imageFile
+        
+      
+        
+
+        user.signUpInBackgroundWithBlock {
+            (succedeed:Bool, error:NSError?) -> Void in
+            
+            if (error != nil)
+            {
+                println("can't signup")
+            }else {
+                println("you signed up")
+                
+                self.performSegueWithIdentifier("goToUsersVC", sender: self)
+            }
+            
+            
+        }
+        
+           }
+    
+
+    
+    
+    
+    
+    
+
 
     /*
     // MARK: - Navigation

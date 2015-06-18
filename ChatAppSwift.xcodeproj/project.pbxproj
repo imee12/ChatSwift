@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B2F0D8F1B332D9F008AE42C /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F0D8E1B332D9F008AE42C /* ConversationViewController.swift */; };
+		9BAAF4AC1B30CEA500AB0C05 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAF4AB1B30CEA500AB0C05 /* UsersViewController.swift */; };
+		9BAAF4AE1B30D07700AB0C05 /* resultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAF4AD1B30D07700AB0C05 /* resultsCell.swift */; };
 		9BAD96E51B2F671700C5FCCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD96E41B2F671700C5FCCF /* AppDelegate.swift */; };
 		9BAD96E71B2F671700C5FCCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD96E61B2F671700C5FCCF /* ViewController.swift */; };
 		9BAD96EA1B2F671700C5FCCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD96E81B2F671700C5FCCF /* Main.storyboard */; };
@@ -45,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B2F0D8E1B332D9F008AE42C /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		9BAAF4AB1B30CEA500AB0C05 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		9BAAF4AD1B30D07700AB0C05 /* resultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resultsCell.swift; sourceTree = "<group>"; };
 		9BAD96DF1B2F671700C5FCCF /* ChatAppSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatAppSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BAD96E31B2F671700C5FCCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BAD96E41B2F671700C5FCCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +139,9 @@
 				9BAD96E41B2F671700C5FCCF /* AppDelegate.swift */,
 				9BAD96E61B2F671700C5FCCF /* ViewController.swift */,
 				9BAD96E81B2F671700C5FCCF /* Main.storyboard */,
+				9B2F0D8E1B332D9F008AE42C /* ConversationViewController.swift */,
+				9BAAF4AD1B30D07700AB0C05 /* resultsCell.swift */,
+				9BAAF4AB1B30CEA500AB0C05 /* UsersViewController.swift */,
 				9BAD97041B2F6B5E00C5FCCF /* LoginVC.swift */,
 				9BAD972F1B2F889900C5FCCF /* SignupViewController.swift */,
 				9BAD96EB1B2F671700C5FCCF /* Images.xcassets */,
@@ -241,6 +250,7 @@
 				TargetAttributes = {
 					9BAD96DE1B2F671700C5FCCF = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = B3J9X5E9DL;
 					};
 					9BAD96F31B2F671700C5FCCF = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -296,9 +306,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BAD97271B2F729400C5FCCF /* ChatAppHeader.m in Sources */,
+				9BAAF4AC1B30CEA500AB0C05 /* UsersViewController.swift in Sources */,
+				9B2F0D8F1B332D9F008AE42C /* ConversationViewController.swift in Sources */,
 				9BAD96E71B2F671700C5FCCF /* ViewController.swift in Sources */,
 				9BAD97301B2F889900C5FCCF /* SignupViewController.swift in Sources */,
 				9BAD96E51B2F671700C5FCCF /* AppDelegate.swift in Sources */,
+				9BAAF4AE1B30D07700AB0C05 /* resultsCell.swift in Sources */,
 				9BAD97051B2F6B5E00C5FCCF /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,8 +438,14 @@
 		9BAD96FF1B2F671700C5FCCF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"armv7,",
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -435,6 +454,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChatAppSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -443,8 +463,14 @@
 		9BAD97001B2F671700C5FCCF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"armv7,",
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -453,6 +479,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChatAppSwift-Bridging-Header.h";
 			};
 			name = Release;
@@ -510,6 +537,7 @@
 				9BAD97001B2F671700C5FCCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9BAD97011B2F671700C5FCCF /* Build configuration list for PBXNativeTarget "ChatAppSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +546,7 @@
 				9BAD97031B2F671700C5FCCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
