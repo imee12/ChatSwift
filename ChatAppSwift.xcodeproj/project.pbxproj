@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9B2F0D8F1B332D9F008AE42C /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F0D8E1B332D9F008AE42C /* ConversationViewController.swift */; };
+		9B2F0D911B349A51008AE42C /* messagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F0D901B349A51008AE42C /* messagesViewController.swift */; };
 		9BAAF4AC1B30CEA500AB0C05 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAF4AB1B30CEA500AB0C05 /* UsersViewController.swift */; };
 		9BAAF4AE1B30D07700AB0C05 /* resultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAF4AD1B30D07700AB0C05 /* resultsCell.swift */; };
 		9BAD96E51B2F671700C5FCCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD96E41B2F671700C5FCCF /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		9B2F0D8E1B332D9F008AE42C /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		9B2F0D901B349A51008AE42C /* messagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messagesViewController.swift; sourceTree = "<group>"; };
 		9BAAF4AB1B30CEA500AB0C05 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		9BAAF4AD1B30D07700AB0C05 /* resultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resultsCell.swift; sourceTree = "<group>"; };
 		9BAD96DF1B2F671700C5FCCF /* ChatAppSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatAppSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +141,7 @@
 				9BAD96E41B2F671700C5FCCF /* AppDelegate.swift */,
 				9BAD96E61B2F671700C5FCCF /* ViewController.swift */,
 				9BAD96E81B2F671700C5FCCF /* Main.storyboard */,
+				9B2F0D901B349A51008AE42C /* messagesViewController.swift */,
 				9B2F0D8E1B332D9F008AE42C /* ConversationViewController.swift */,
 				9BAAF4AD1B30D07700AB0C05 /* resultsCell.swift */,
 				9BAAF4AB1B30CEA500AB0C05 /* UsersViewController.swift */,
@@ -310,6 +313,7 @@
 				9BAAF4AC1B30CEA500AB0C05 /* UsersViewController.swift in Sources */,
 				9B2F0D8F1B332D9F008AE42C /* ConversationViewController.swift in Sources */,
 				9BAD96E71B2F671700C5FCCF /* ViewController.swift in Sources */,
+				9B2F0D911B349A51008AE42C /* messagesViewController.swift in Sources */,
 				9BAD97301B2F889900C5FCCF /* SignupViewController.swift in Sources */,
 				9BAD96E51B2F671700C5FCCF /* AppDelegate.swift in Sources */,
 				9BAAF4AE1B30D07700AB0C05 /* resultsCell.swift in Sources */,

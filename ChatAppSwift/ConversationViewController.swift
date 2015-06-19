@@ -29,7 +29,7 @@ class ConversationViewController: UIViewController, UIScrollViewDelegate, UIText
     @IBOutlet weak var sendBtn: UIButton!
     
     
-    @IBOutlet weak var BlockBtn: UIBarButtonItem!
+    //@IBOutlet weak var blockBtn: UIBarButtonItem!
     
     
     
@@ -59,6 +59,11 @@ class ConversationViewController: UIViewController, UIScrollViewDelegate, UIText
 
     var resultsImageFiles = [PFFile]()
     var resultsImageFiles2 = [PFFile]()
+    
+    var isBlocked = false
+    
+    var blockBtn = UIBarButtonItem()
+    var reportBtn = UIBarButtonItem()
     
     
     override func viewDidLoad() {
@@ -97,8 +102,14 @@ class ConversationViewController: UIViewController, UIScrollViewDelegate, UIText
         
         
         blockBtn.title = ""
-
         
+        blockBtn = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("blockBtn_click"))
+        
+        reportBtn = UIBarButtonItem(title: "Report", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("reportBtn_click"))
+
+        var buttonArray = NSArray(objects: blockBtn,reportBtn)
+        self.navigationItem.rightBarButtonItems = buttonArray as [AnyObject]
+ 
         
         }
     
@@ -188,6 +199,34 @@ class ConversationViewController: UIViewController, UIScrollViewDelegate, UIText
     }
     
     override func viewDidAppear(animated: Bool) {
+        
+        var checkQuery = PFQuery(className: "Block")
+        checkQuery.whereKey("user", equalTo: otherName)
+        checkQuery.whereKey("blocked", equalTo: userName)
+        var objects2 = checkQuery.findObjects()
+        
+        if objects2!.count > 0 {
+            
+            isBlocked = true
+        } else {
+            
+            isBlocked = false
+        }
+        
+        
+        var blockQuery = PFQuery(className: "Block")
+        blockQuery.whereKey("user", equalTo: userName)
+        blockQuery.whereKey("blocked", equalTo: otherName)
+        var objects0 = blockQuery.findObjects()
+        
+        if objects0!.count > 0 {
+            self.blockBtn.title = "Unblock"
+            
+        } else {
+            self.blockBtn.title = "Block"
+            
+        }
+
         
         var query = PFQuery(className: "_User")
         query.whereKey("username", equalTo: userName)
@@ -401,6 +440,21 @@ class ConversationViewController: UIViewController, UIScrollViewDelegate, UIText
     
     @IBAction func sendBtn_click(sender: AnyObject) {
         
+        if isBlocked == true {
+            
+            println("you are blocked!!!!")
+            return
+            
+        }
+
+        
+        if blockBtn.title == "Unblock" {
+            println("you have blocked this user. unblock to send message")
+            return
+            
+        }
+        
+        
         if messageTextView.text == "" {
             
             println("no text")
@@ -443,10 +497,55 @@ class ConversationViewController: UIViewController, UIScrollViewDelegate, UIText
     
 
     
-    @IBAction func blockBtn_click(sender: AnyObject) {
+ func blockBtn_click() {
         
-        
+        if blockBtn.title == "Block" {
+            
+            var addBlock = PFObject(className: "Block")
+            addBlock.setObject(userName, forKey: "user")
+            addBlock.setObject(otherName, forKey: "blocked")
+            addBlock.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+                
+            })
+            //addBlock.saveInBackground()
+            self.blockBtn.title = "Unblock"
+            
+        } else {
+            
+            var query:PFQuery = PFQuery(className: "Block")
+            query.whereKey("user", equalTo: userName)
+            query.whereKey("blocked", equalTo: otherName)
+            var objects = query.findObjects()
+            
+            for object in objects! {
+                
+                object.delete()
+                //object.deleteInBackground()
+            }
+            
+            self.blockBtn.title = "Block"
+    
+            
+        }
+    
     }
+    
+    func reportBtn_click() {
+        
+        println("report pressed")
+        
+        var addReport = PFObject(className: "Report")
+        addReport.setObject(userName, forKey: "user")
+        addReport.setObject(otherName, forKey: "reported")
+        addReport.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+            
+        })
+        
+        //addReport.saveInBackground()
+        
+        println("report sent")
+    }
+    
     
     
     
