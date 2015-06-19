@@ -156,6 +156,14 @@ class SignupViewController: UIViewController, UINavigationControllerDelegate, UI
             }else {
                 println("you signed up")
                 
+                var installation:PFInstallation = PFInstallation.currentInstallation()
+                installation["user"] = PFUser.currentUser()
+                installation.saveInBackgroundWithBlock({
+                    (success:Bool, error:NSError?) -> Void in
+                })
+
+                
+                
                 self.performSegueWithIdentifier("goToUsersVC", sender: self)
             }
             

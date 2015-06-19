@@ -255,6 +255,9 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="xQo-MN-dOh" id="5pG-U1-p8P"/>
+                                        </connections>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nOC-9S-5jY">
                                         <rect key="frame" x="270" y="5" width="50" height="30"/>
@@ -262,6 +265,9 @@
                                         <state key="normal" title="Send">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendBtn_click:" destination="xQo-MN-dOh" eventType="touchUpInside" id="drb-Ho-XFa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -273,8 +279,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="XDF-jA-LbH"/>
+                    <navigationItem key="navigationItem" id="XDF-jA-LbH">
+                        <barButtonItem key="rightBarButtonItem" title="Block" id="Lv7-zc-oFL">
+                            <connections>
+                                <action selector="blockBtn_click:" destination="xQo-MN-dOh" id="pyB-AU-Cv3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="BlockBtn" destination="Lv7-zc-oFL" id="9r1-Iq-2Mc"/>
                         <outlet property="frameMessageView" destination="38m-hQ-zxq" id="kPn-Ff-1sz"/>
                         <outlet property="lineLbl" destination="NJc-yW-By1" id="XTs-h4-J7B"/>
                         <outlet property="messageTextView" destination="IMn-4z-MLN" id="0Q3-nl-hFQ"/>

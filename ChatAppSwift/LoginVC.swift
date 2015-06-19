@@ -62,6 +62,13 @@ class LoginVC: UIViewController {
             }else {
                 println("you are logged in")
                 
+                var installation:PFInstallation = PFInstallation.currentInstallation()
+                installation["user"] = PFUser.currentUser()
+                installation.saveInBackgroundWithBlock({
+                    (success:Bool, error:NSError?) -> Void in
+                })
+                
+                
                 self.performSegueWithIdentifier("goToUsersVC", sender: self)
             }
         

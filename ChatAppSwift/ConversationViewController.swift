@@ -12,7 +12,7 @@ import UIKit
 var otherName = ""
 var otherProfileName = ""
 
-class ConversationViewController: UIViewController, UIScrollViewDelegate{
+class ConversationViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate{
 
     
     @IBOutlet weak var resultsScrollView: UIScrollView!
@@ -27,6 +27,10 @@ class ConversationViewController: UIViewController, UIScrollViewDelegate{
     
     
     @IBOutlet weak var sendBtn: UIButton!
+    
+    
+    @IBOutlet weak var BlockBtn: UIBarButtonItem!
+    
     
     
     var scrollViewOriginalY:CGFloat = 0
@@ -80,9 +84,103 @@ class ConversationViewController: UIViewController, UIScrollViewDelegate{
         mLbl.textColor = UIColor.lightGrayColor()
         messageTextView.addSubview(mLbl)
         
-        //refreshResults()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        
+        let tapScrollViewGesture = UITapGestureRecognizer(target: self, action: "didTapScrollView")
+        tapScrollViewGesture.numberOfTapsRequired = 1
+        resultsScrollView.addGestureRecognizer(tapScrollViewGesture)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "getMessageFunc", name: "getMessage", object: nil)
+        
+        
+        blockBtn.title = ""
+
+        
+        
+        }
+    
+    
+    func getMessageFunc() {
+        
+        refreshResults()
         
     }
+
+    
+    func didTapScrollView() {
+        
+        self.view.endEditing(true)
+    }
+
+    func textViewDidChange(textView: UITextView) {
+        
+        if !messageTextView.hasText() {
+            
+            self.mLbl.hidden = false
+        } else {
+            
+            self.mLbl.hidden = true
+        }
+        
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        
+        if !messageTextView.hasText() {
+            self.mLbl.hidden = false
+        }
+    }
+
+    
+    
+    func keyboardWasShown(notification:NSNotification) {
+        
+        let dict:NSDictionary = notification.userInfo!
+        let s:NSValue = dict.valueForKey(UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let rect:CGRect = s.CGRectValue()
+        
+        UIView.animateWithDuration(0.3, delay: 0, options: .CurveLinear, animations: {
+            
+            self.resultsScrollView.frame.origin.y = self.scrollViewOriginalY - rect.height
+            self.frameMessageView.frame.origin.y = self.frameMessageOriginalY - rect.height
+            
+            var bottomOffset:CGPoint = CGPointMake(0, self.resultsScrollView.contentSize.height - self.resultsScrollView.bounds.size.height)
+            self.resultsScrollView.setContentOffset(bottomOffset, animated: false)
+            
+            }, completion: {
+                (finished:Bool) in
+                
+        })
+        
+    }
+    
+    func keyboardWillHide(notification:NSNotification) {
+        
+        let dict:NSDictionary = notification.userInfo!
+        let s:NSValue = dict.valueForKey(UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let rect:CGRect = s.CGRectValue()
+        
+        UIView.animateWithDuration(0.3, delay: 0, options: .CurveLinear, animations: {
+            
+            self.resultsScrollView.frame.origin.y = self.scrollViewOriginalY
+            self.frameMessageView.frame.origin.y = self.frameMessageOriginalY
+            
+            var bottomOffset:CGPoint = CGPointMake(0, self.resultsScrollView.contentSize.height - self.resultsScrollView.bounds.size.height)
+            self.resultsScrollView.setContentOffset(bottomOffset, animated: false)
+            
+            }, completion: {
+                (finished:Bool) in
+                
+        })
+        
+        
+    }
+    
+
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -301,7 +399,54 @@ class ConversationViewController: UIViewController, UIScrollViewDelegate{
     
         
     
+    @IBAction func sendBtn_click(sender: AnyObject) {
+        
+        if messageTextView.text == "" {
+            
+            println("no text")
+            
+        } else {
+            
+            var messageDBTable = PFObject(className: "Messages")
+            messageDBTable["sender"] = userName
+            messageDBTable["other"] = otherName
+            messageDBTable["message"] = self.messageTextView.text
+            messageDBTable.saveInBackgroundWithBlock {
+                (success:Bool, error:NSError?) -> Void in
+                
+                if success == true {
+                    
+                    var uQuery:PFQuery = PFUser.query()!
+                    uQuery.whereKey("username", equalTo: otherName)
+                    
+                    var pushQuery:PFQuery = PFInstallation.query()!
+                    pushQuery.whereKey("user", matchesQuery: uQuery)
+                    
+                    var push:PFPush = PFPush()
+                    push.setQuery(pushQuery)
+                    push.setMessage("New Message")
+                    push.sendPush(nil)
+                    println("push sent")
+                    
+                    println("message sent")
+                    self.messageTextView.text = ""
+                    self.mLbl.hidden = false
+                    self.refreshResults()
+                    
+                }
+                
+            }
+            
+        }
+
+    }
     
+
+    
+    @IBAction func blockBtn_click(sender: AnyObject) {
+        
+        
+    }
     
     
     
