@@ -12,7 +12,8 @@
 		9B2F0D951B34A101008AE42C /* messageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F0D941B34A101008AE42C /* messageCell.swift */; };
 		9B2F0D971B38432A008AE42C /* groupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F0D961B38432A008AE42C /* groupViewController.swift */; };
 		9B2F0D991B38449F008AE42C /* groupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F0D981B38449F008AE42C /* groupCell.swift */; };
-		9B2F0D9B1B384FAB008AE42C /* groupConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F0D9A1B384FAB008AE42C /* groupConversationViewController.swift */; };
+		9B2F0D9C1B386182008AE42C /* groupConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F0D9A1B384FAB008AE42C /* groupConversationViewController.swift */; };
+		9B545BCD1B38852800D57F31 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B545BCC1B38852800D57F31 /* CoreData.framework */; };
 		9BAAF4AC1B30CEA500AB0C05 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAF4AB1B30CEA500AB0C05 /* UsersViewController.swift */; };
 		9BAAF4AE1B30D07700AB0C05 /* resultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAF4AD1B30D07700AB0C05 /* resultsCell.swift */; };
 		9BAD96E51B2F671700C5FCCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD96E41B2F671700C5FCCF /* AppDelegate.swift */; };
@@ -59,6 +60,7 @@
 		9B2F0D961B38432A008AE42C /* groupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupViewController.swift; sourceTree = "<group>"; };
 		9B2F0D981B38449F008AE42C /* groupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupCell.swift; sourceTree = "<group>"; };
 		9B2F0D9A1B384FAB008AE42C /* groupConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupConversationViewController.swift; sourceTree = "<group>"; };
+		9B545BCC1B38852800D57F31 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9BAAF4AB1B30CEA500AB0C05 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		9BAAF4AD1B30D07700AB0C05 /* resultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resultsCell.swift; sourceTree = "<group>"; };
 		9BAD96DF1B2F671700C5FCCF /* ChatAppSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatAppSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B545BCD1B38852800D57F31 /* CoreData.framework in Frameworks */,
 				9BAD97291B2F76A400C5FCCF /* libsqlite3.dylib in Frameworks */,
 				9BAD97231B2F725200C5FCCF /* SystemConfiguration.framework in Frameworks */,
 				9BAD97211B2F724A00C5FCCF /* StoreKit.framework in Frameworks */,
@@ -197,6 +200,7 @@
 		9BAD97241B2F726D00C5FCCF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B545BCC1B38852800D57F31 /* CoreData.framework */,
 				9BAD97281B2F76A400C5FCCF /* libsqlite3.dylib */,
 				9BAD97221B2F725200C5FCCF /* SystemConfiguration.framework */,
 				9BAD97201B2F724A00C5FCCF /* StoreKit.framework */,
@@ -321,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B2F0D9C1B386182008AE42C /* groupConversationViewController.swift in Sources */,
 				9B2F0D971B38432A008AE42C /* groupViewController.swift in Sources */,
 				9BAD97271B2F729400C5FCCF /* ChatAppHeader.m in Sources */,
 				9B2F0D951B34A101008AE42C /* messageCell.swift in Sources */,
@@ -331,7 +336,6 @@
 				9B2F0D991B38449F008AE42C /* groupCell.swift in Sources */,
 				9BAD97301B2F889900C5FCCF /* SignupViewController.swift in Sources */,
 				9BAD96E51B2F671700C5FCCF /* AppDelegate.swift in Sources */,
-				9B2F0D9B1B384FAB008AE42C /* groupConversationViewController.swift in Sources */,
 				9BAAF4AE1B30D07700AB0C05 /* resultsCell.swift in Sources */,
 				9BAD97051B2F6B5E00C5FCCF /* LoginVC.swift in Sources */,
 			);

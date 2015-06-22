@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>E828417B-451C-4A32-80CF-99519F638CCD</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>ChatAppSwift</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>423CB1D0FEAF5C00F66962AA72D487D5A5860BD5</key>
 		<string>https://github.com/imee12/ChatSwift.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ChatAppSwift.xcodeproj/project.xcworkspace</string>
+	<string>ChatAppSwift.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>423CB1D0FEAF5C00F66962AA72D487D5A5860BD5</key>

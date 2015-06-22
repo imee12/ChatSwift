@@ -38,7 +38,7 @@ class groupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidAppear(animated: Bool) {
         
-       // groupConversationVC_title = ""
+       groupConversationVC_title = ""
         
         self.resultsNameArray.removeAll(keepCapacity: false)
         self.resultsNameArray2.removeAll(keepCapacity: false)
