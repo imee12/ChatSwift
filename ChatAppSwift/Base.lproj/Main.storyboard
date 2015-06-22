@@ -219,15 +219,12 @@
                                 <action selector="logoutBtn_click:" destination="og4-da-2Td" id="hfd-dR-mKf"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Messages" id="OmX-BG-TfQ">
-                            <connections>
-                                <segue destination="M3X-QI-r1O" kind="push" id="oWn-J3-nOc"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="resultsTable" destination="7Z2-9T-pwY" id="94Y-5j-tnm"/>
                         <segue destination="xQo-MN-dOh" kind="push" identifier="goToConversationVC" id="hGv-iS-vYK"/>
+                        <segue destination="M3X-QI-r1O" kind="push" identifier="goToMessagesVC_FromUsersVC" id="E23-vs-V8V"/>
+                        <segue destination="YWt-1M-yPR" kind="push" identifier="goToGroupVC_FromUsersVC" id="qCs-fJ-lbn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAK-AW-FQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -300,12 +297,11 @@
                     <navigationItem key="navigationItem" id="zv4-Mc-pdx"/>
                     <connections>
                         <outlet property="resultsTable" destination="7Xi-Tw-WME" id="3KW-ef-bYP"/>
-                        <segue destination="xQo-MN-dOh" kind="push" identifier="goToConversationVC2" id="Spy-mt-VBj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eya-Eo-cEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1254" y="1834"/>
+            <point key="canvasLocation" x="1243" y="1902"/>
         </scene>
         <!--Conversation View Controller-->
         <scene sceneID="9hl-fT-0Th">
@@ -370,6 +366,79 @@
             </objects>
             <point key="canvasLocation" x="1616" y="1101"/>
         </scene>
+        <!--Groups-->
+        <scene sceneID="pWb-Ef-6a0">
+            <objects>
+                <viewController id="YWt-1M-yPR" customClass="groupViewController" customModule="ChatAppSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XwE-A1-zvY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="l8T-jC-Ao8">
+                                <rect key="frame" x="0.0" y="38" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" id="4oe-HB-4t8" customClass="groupCell" customModule="ChatAppSwift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4oe-HB-4t8" id="otq-XU-ODv">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jat-91-KkE">
+                                                    <rect key="frame" x="14" y="15" width="298" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="groupNameLbl" destination="jat-91-KkE" id="8sm-TM-xCc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="YWt-1M-yPR" id="LEf-QC-9dy"/>
+                                    <outlet property="delegate" destination="YWt-1M-yPR" id="cLI-QL-hTp"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Groups" id="oqt-s7-jHD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="j3g-Eu-hZ7">
+                            <connections>
+                                <action selector="addGroupBtn_click:" destination="YWt-1M-yPR" id="jSw-cr-Nma"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="resultsTable" destination="l8T-jC-Ao8" id="3pm-9r-lvf"/>
+                        <segue destination="jxg-Il-fsM" kind="push" identifier="goToGroupConversationVC_fromGroupVC" id="6YL-8B-thn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qku-7W-FZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1616" y="1897"/>
+        </scene>
+        <!--Group Conversation View Controller-->
+        <scene sceneID="Diu-iF-7ef">
+            <objects>
+                <viewController id="jxg-Il-fsM" customClass="groupConversationViewController" customModule="ChatAppSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gex-aX-z69">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VYI-8K-wiq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BAL-DM-hlY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2050" y="1889"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="EnE-rm-Xua">
             <objects>
@@ -399,6 +468,5 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Lm7-CN-0CX"/>
-        <segue reference="Spy-mt-VBj"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,6 +10,9 @@
 		9B2F0D8F1B332D9F008AE42C /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F0D8E1B332D9F008AE42C /* ConversationViewController.swift */; };
 		9B2F0D911B349A51008AE42C /* messagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F0D901B349A51008AE42C /* messagesViewController.swift */; };
 		9B2F0D951B34A101008AE42C /* messageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F0D941B34A101008AE42C /* messageCell.swift */; };
+		9B2F0D971B38432A008AE42C /* groupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F0D961B38432A008AE42C /* groupViewController.swift */; };
+		9B2F0D991B38449F008AE42C /* groupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F0D981B38449F008AE42C /* groupCell.swift */; };
+		9B2F0D9B1B384FAB008AE42C /* groupConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F0D9A1B384FAB008AE42C /* groupConversationViewController.swift */; };
 		9BAAF4AC1B30CEA500AB0C05 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAF4AB1B30CEA500AB0C05 /* UsersViewController.swift */; };
 		9BAAF4AE1B30D07700AB0C05 /* resultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAF4AD1B30D07700AB0C05 /* resultsCell.swift */; };
 		9BAD96E51B2F671700C5FCCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD96E41B2F671700C5FCCF /* AppDelegate.swift */; };
@@ -53,6 +56,9 @@
 		9B2F0D8E1B332D9F008AE42C /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		9B2F0D901B349A51008AE42C /* messagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messagesViewController.swift; sourceTree = "<group>"; };
 		9B2F0D941B34A101008AE42C /* messageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messageCell.swift; sourceTree = "<group>"; };
+		9B2F0D961B38432A008AE42C /* groupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupViewController.swift; sourceTree = "<group>"; };
+		9B2F0D981B38449F008AE42C /* groupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupCell.swift; sourceTree = "<group>"; };
+		9B2F0D9A1B384FAB008AE42C /* groupConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupConversationViewController.swift; sourceTree = "<group>"; };
 		9BAAF4AB1B30CEA500AB0C05 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		9BAAF4AD1B30D07700AB0C05 /* resultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resultsCell.swift; sourceTree = "<group>"; };
 		9BAD96DF1B2F671700C5FCCF /* ChatAppSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatAppSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +149,9 @@
 				9BAD96E41B2F671700C5FCCF /* AppDelegate.swift */,
 				9BAD96E61B2F671700C5FCCF /* ViewController.swift */,
 				9BAD96E81B2F671700C5FCCF /* Main.storyboard */,
+				9B2F0D9A1B384FAB008AE42C /* groupConversationViewController.swift */,
+				9B2F0D981B38449F008AE42C /* groupCell.swift */,
+				9B2F0D961B38432A008AE42C /* groupViewController.swift */,
 				9B2F0D901B349A51008AE42C /* messagesViewController.swift */,
 				9B2F0D8E1B332D9F008AE42C /* ConversationViewController.swift */,
 				9B2F0D941B34A101008AE42C /* messageCell.swift */,
@@ -312,14 +321,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B2F0D971B38432A008AE42C /* groupViewController.swift in Sources */,
 				9BAD97271B2F729400C5FCCF /* ChatAppHeader.m in Sources */,
 				9B2F0D951B34A101008AE42C /* messageCell.swift in Sources */,
 				9BAAF4AC1B30CEA500AB0C05 /* UsersViewController.swift in Sources */,
 				9B2F0D8F1B332D9F008AE42C /* ConversationViewController.swift in Sources */,
 				9BAD96E71B2F671700C5FCCF /* ViewController.swift in Sources */,
 				9B2F0D911B349A51008AE42C /* messagesViewController.swift in Sources */,
+				9B2F0D991B38449F008AE42C /* groupCell.swift in Sources */,
 				9BAD97301B2F889900C5FCCF /* SignupViewController.swift in Sources */,
 				9BAD96E51B2F671700C5FCCF /* AppDelegate.swift in Sources */,
+				9B2F0D9B1B384FAB008AE42C /* groupConversationViewController.swift in Sources */,
 				9BAAF4AE1B30D07700AB0C05 /* resultsCell.swift in Sources */,
 				9BAD97051B2F6B5E00C5FCCF /* LoginVC.swift in Sources */,
 			);

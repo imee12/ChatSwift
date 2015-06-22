@@ -35,6 +35,13 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         resultsTable.frame = CGRectMake(0, 0, theWidth, theHeight - 64)
         
+        let messagesBarBtn = UIBarButtonItem(title: "Messages", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("messagesBtn_click"))
+        
+        let groupBarBtn = UIBarButtonItem(title: "Group", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("groupBtn_click"))
+        
+        var buttonArray = NSArray(objects: messagesBarBtn,groupBarBtn)
+        self.navigationItem.rightBarButtonItems = buttonArray as [AnyObject]
+        
         userName = PFUser.currentUser()!.username!
         
     }
@@ -43,7 +50,22 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func messagesBtn_click() {
+        
+        println("messages")
+        
+        self.performSegueWithIdentifier("goToMessagesVC_FromUsersVC", sender: self)
+        
+    }
     
+    func groupBtn_click() {
+        
+        println("group")
+        
+        self.performSegueWithIdentifier("goToGroupVC_FromUsersVC", sender: self)
+        
+    }
+
     
     override func viewDidAppear(animated: Bool) {
         
