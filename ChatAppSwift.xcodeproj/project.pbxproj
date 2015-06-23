@@ -418,10 +418,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "fff7812e-23b0-4a7e-8ebb-8ec4816f65e3";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "armv7 armv6 arm64";
 			};
 			name = Debug;
 		};
@@ -458,19 +459,18 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "fff7812e-23b0-4a7e-8ebb-8ec4816f65e3";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv6 arm64";
 			};
 			name = Release;
 		};
 		9BAD96FF1B2F671700C5FCCF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					"armv7,",
-					armv7s,
-				);
+				ARCHS = "armv7,";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Imelda Cuison (G69TQWVN2U)";
@@ -486,16 +486,14 @@
 				PROVISIONING_PROFILE = "fff7812e-23b0-4a7e-8ebb-8ec4816f65e3";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChatAppSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "armv7 armv6 arm64";
 			};
 			name = Debug;
 		};
 		9BAD97001B2F671700C5FCCF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					"armv7,",
-					armv7s,
-				);
+				ARCHS = "armv7,";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Imelda Cuison (G69TQWVN2U)";
@@ -510,12 +508,19 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "fff7812e-23b0-4a7e-8ebb-8ec4816f65e3";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChatAppSwift-Bridging-Header.h";
+				VALID_ARCHS = "armv7 armv6 arm64";
 			};
 			name = Release;
 		};
 		9BAD97021B2F671700C5FCCF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					arm64,
+					armv6,
+					armv7,
+				);
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -529,6 +534,7 @@
 				);
 				INFOPLIST_FILE = ChatAppSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChatAppSwift.app/ChatAppSwift";
@@ -538,6 +544,12 @@
 		9BAD97031B2F671700C5FCCF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					arm64,
+					armv6,
+					armv7,
+				);
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -547,6 +559,7 @@
 				);
 				INFOPLIST_FILE = ChatAppSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChatAppSwift.app/ChatAppSwift";
